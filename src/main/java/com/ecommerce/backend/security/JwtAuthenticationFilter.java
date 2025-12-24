@@ -1,9 +1,11 @@
 package com.ecommerce.backend.security;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -38,6 +40,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String token = null;
         String email = null;
 
+        // Extract token and email
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
             try {
@@ -47,15 +50,20 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
         }
 
+        // Authenticate user
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             User user = userRepository.findByEmail(email).orElse(null);
 
             if (user != null && jwtUtil.validateToken(token, user.getEmail())) {
 
-                UsernamePasswordAuthenticationToken authToken =
-                        new UsernamePasswordAuthenticationToken(
-                                user, null, null
-                        );
+                // 🔹 Extract role from token and create authorities
+            	String role = jwtUtil.extractRole(token); // role from JWT
+            	if (role == null) role = "CUSTOMER"; // fallback, just in case
+            	List<SimpleGrantedAuthority> authorities = List.of(
+            	    new SimpleGrantedAuthority("ROLE_" + role)
+            	);
+            	UsernamePasswordAuthenticationToken authToken =
+            	        new UsernamePasswordAuthenticationToken(user, null, authorities);
 
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authToken);
