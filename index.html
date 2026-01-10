@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>NexMart - Premium Electronics, Fashion & Home Shopping India | Best Deals</title>
+    <meta name="description" content="Shop premium electronics, fashion, home essentials & gaming at NexMart. Free shipping on orders over ₹10,000. Secure payments, fast delivery across India. MacBook, iPhone, Sony, Nike & more." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nexmart.in/" />
+    <meta property="og:title" content="NexMart - Premium Shopping Platform India | Electronics, Fashion, Home" />
+    <meta property="og:description" content="Discover premium electronics (MacBook, iPhone 15, Sony WH-1000XM5), fashion (Nike, Lululemon), home essentials & gaming. Free shipping over ₹10,000. Secure checkout." />
+    <meta property="og:image" content="https://nexmart.in/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://nexmart.in/" />
+    <meta property="twitter:title" content="NexMart - Best Deals on Electronics, Fashion & Home India" />
+    <meta property="twitter:description" content="MacBook Pro, iPhone 15 Pro Max, Sony headphones, Nike shoes & more. Free shipping, EMI options, COD available." />
+    <meta property="twitter:image" content="https://nexmart.in/twitter-image.jpg" />
+    
+    <!-- SEO Essentials -->
+    <meta name="keywords" content="online shopping India, electronics store, fashion store, MacBook Pro, iPhone 15, Sony WH-1000XM5, Nike Air Max, free shipping, best deals India" />
+    <meta name="author" content="NexMart Team" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nexmart.in/" />
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Structured Data (JSON-LD) for E-commerce -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "NexMart",
+      "url": "https://nexmart.in",
+      "description": "Premium online shopping platform in India for electronics, fashion, home & gaming products",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://nexmart.in/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "sameAs": [
+        "https://twitter.com/nexmartindia",
+        "https://instagram.com/nexmartindia",
+        "https://facebook.com/nexmartindia"
+      ]
+    }
+    </script>
+
+    <!-- Additional E-commerce Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NexMart",
+      "url": "https://nexmart.in",
+      "logo": "https://nexmart.in/logo.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+91-XXXXXXXXXX",
+        "contactType": "customer service",
+        "email": "support@nexmart.in"
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/src/main.tsx" as="script" type="module" />
+    <link rel="dns-prefetch" href="//images.unsplash.com" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="NexMart" />
+    
+    <!-- Additional SEO -->
+    <meta name="geo.region" content="IN-HR" />
+    <meta name="geo.placename" content="Narnaund, Haryana" />
+    <meta name="geo.position" content="29.0892;75.9442" />
+    <meta name="ICBM" content="29.0892, 75.9442" />
+    
+    <!-- Font Preload (if using custom fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker (PWA) -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+  </body>
+</html>
